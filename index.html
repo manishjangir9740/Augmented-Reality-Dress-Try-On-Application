@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Virtual Try-On System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Loading AR System...</p>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app-container" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <h1>AR Virtual Try-On</h1>
+            <div class="header-controls">
+                <button id="flip-camera-btn" class="icon-btn" title="Flip Camera">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M21 15v4a2 2 0 0 1-2 2h-4M3 9V5a2 2 0 0 1 2-2h4"/>
+                    </svg>
+                </button>
+                <button id="save-btn" class="icon-btn" title="Save Photo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <path d="M21 15l-5-5L5 21"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Camera View -->
+        <div class="camera-container">
+            <video id="camera-feed" class="camera-feed" autoplay playsinline></video>
+            <canvas id="output-canvas" class="output-canvas"></canvas>
+            
+            <!-- AR Status Indicator -->
+            <div id="ar-status" class="ar-status">
+                <span class="status-dot"></span>
+                <span id="status-text">Detecting body...</span>
+            </div>
+
+            <!-- Instructions -->
+            <div id="instructions" class="instructions">
+                <p>👕 Stand straight facing the camera</p>
+                <p>📸 Dress will appear on your body</p>
+                <p>🎯 Try different angles by moving</p>
+            </div>
+        </div>
+
+        <!-- Customization Panel -->
+        <div class="customization-panel" id="customization-panel" style="display: none;">
+            <div class="custom-section">
+                <h4>Color</h4>
+                <div id="color-options" class="color-options"></div>
+            </div>
+            <div class="custom-section">
+                <h4>Size</h4>
+                <div id="size-options" class="size-options"></div>
+            </div>
+        </div>
+
+        <!-- Accessories Selection -->
+        <div class="accessories-selection" id="accessories-panel" style="display: none;">
+            <h3>Accessories</h3>
+            <div class="accessories-grid" id="accessories-grid">
+                <!-- Accessories will be loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- Dress Selection Carousel -->
+        <div class="dress-selection">
+            <div class="selection-tabs">
+                <button class="tab-btn active" data-tab="dresses">Outfits</button>
+                <button class="tab-btn" data-tab="accessories">Accessories</button>
+            </div>
+            <h3 id="selection-title">Select Your Outfit</h3>
+            <div class="carousel-container">
+                <button class="carousel-nav prev" id="carousel-prev">‹</button>
+                <div class="carousel" id="dress-carousel">
+                    <!-- Dresses will be loaded dynamically -->
+                </div>
+                <button class="carousel-nav next" id="carousel-next">›</button>
+            </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <button id="clear-btn" class="action-btn secondary">
+                Clear All
+            </button>
+            <button id="customize-btn" class="action-btn secondary" style="display: none;">
+                Customize
+            </button>
+            <button id="apply-btn" class="action-btn primary">
+                Save Photo
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="imageGenerator.js"></script>
+    <script src="config.js"></script>
+    <script src="bodyDetection.js"></script>
+    <script src="dressOverlay.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

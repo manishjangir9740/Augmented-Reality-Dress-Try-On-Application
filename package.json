@@ -1,0 +1,35 @@
+{
+  "name": "ar-virtual-tryon-system",
+  "version": "1.0.0",
+  "description": "Augmented Reality Virtual Try-On System - Try dresses in real-time using AR technology",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "start-node": "npx http-server -p 8000 -c-1",
+    "start-php": "php -S localhost:8000"
+  },
+  "keywords": [
+    "AR",
+    "augmented-reality",
+    "virtual-tryon",
+    "mediapipe",
+    "pose-detection",
+    "fashion-tech",
+    "webAR"
+  ],
+  "author": "ADtip Company Assignment",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "local",
+    "url": "D:\\chatbot for ADtip comapny\\2nd project"
+  },
+  "browser": {
+    "main": "index.html"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
+
