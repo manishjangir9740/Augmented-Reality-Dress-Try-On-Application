@@ -100,20 +100,20 @@ const CONFIG = {
             color: '#000000',
             anchorPoint: 'eyes'
         },
-        {
-            id: 'hat1',
-            name: 'Black Cap',
-            type: 'cap',
-            color: '#000000',
-            anchorPoint: 'head'
-        },
-        {
-            id: 'hat2',
-            name: 'Hat',
-            type: 'hat',
-            color: '#8b4513',
-            anchorPoint: 'head'
-        }
+        // {
+        //     id: 'hat1',
+        //     name: 'Black Cap',
+        //     type: 'cap',
+        //     color: '#000000',
+        //     anchorPoint: 'head'
+        // },
+        // {
+        //     id: 'hat2',
+        //     name: 'Hat',
+        //     type: 'hat',
+        //     color: '#8b4513',
+        //     anchorPoint: 'head'
+        // }
     ],
 
     // Size options
