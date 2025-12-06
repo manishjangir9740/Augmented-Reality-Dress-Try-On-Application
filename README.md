@@ -103,11 +103,9 @@ Edit `config.js` to customize:
 - Improve lighting
 - Stand 2-3 feet from camera
 - Show full upper body
+  
+<img width="632" height="884" alt="Screenshot 2025-12-06 072728" src="https://github.com/user-attachments/assets/cf0c3887-0b4c-430e-b7d5-f6e75f7dd179" />
 
-**Performance issues?**
-- Lower resolution in config.js
-- Close other tabs
-- Use Chrome/Edge for best performance
 
 ## License
 
